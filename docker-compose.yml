@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  dbwr:
+    build:
+      context: config 
+    image: 'dbwr'
+    container_name: dbwr
+    ports:
+      - '8081:8080'
