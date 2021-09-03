@@ -6,5 +6,13 @@ services:
       context: config 
     image: 'dbwr'
     container_name: dbwr
-    ports:
-      - '8081:8080'
+    network_mode: 'host'
+      #ports:
+      #- '8088:8080'
+    volumes:
+      - './bob:/bob'
+        #- './config/setenv.sh:/opt/tomcat/bin/setenv.sh'
+    environment:
+      EPICS_CA_ADDR_LIST: ""
+      PV_WRITE_SUPPORT: "false"
+      DBWR1: "/bob/test.bob"
