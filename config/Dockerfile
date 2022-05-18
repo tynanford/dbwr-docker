@@ -28,7 +28,6 @@ ENV CATALINA_HOME="/opt/tomcat"
 COPY ./setenv.sh ${CATALINA_HOME}/bin
 RUN chown root:root ${CATALINA_HOME}/bin/setenv.sh
 RUN chmod ug+x ${CATALINA_HOME}/bin/setenv.sh
-RUN cp ${CATALINA_HOME}/bin/setenv.sh ${CATALINA_HOME}/conf/tomcat.conf
 
 ENV PATH="${PATH}:${CATALINA_HOME}/bin"
 
