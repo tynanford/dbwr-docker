@@ -11,8 +11,10 @@ services:
       #- '8088:8080'
     volumes:
       - './bob:/bob'
-        #- './config/setenv.sh:/opt/tomcat/bin/setenv.sh'
     environment:
-      EPICS_CA_ADDR_LIST: ""
+      EPICS_CA_ADDR_LIST: "10.0.0.10"
+      EPICS_CA_MAX_ARRAY_BYTES:
+      PV_THROTTLE_MS: 1000
+      PV_ARRAY_THROTTLE_MS: 10000
       PV_WRITE_SUPPORT: "false"
       DBWR1: "/bob/test.bob"
