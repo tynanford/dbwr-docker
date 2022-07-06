@@ -1,11 +1,35 @@
 version: '3'
 
 services:
+  pvws:
+    build:
+      context: . 
+      args:
+        SERVICE_NAME: 'pvws'
+        SERVICE_PORT: 12002
+    image: $registry/pvws:$tag 
+    container_name: pvws 
+    ports:
+      - "12002:12002"
+    networks:
+      - web-socket-net
   dbwr:
     build:
-      context: config 
-    image: 'dbwr'
+      context: . 
+      args:
+        SERVICE_NAME: 'dbwr'
+        SERVICE_PORT: 12003
+    image: $registry/dbwr:$tag 
     container_name: dbwr
-    network_mode: 'host'
+    #network_mode: 'host'
+    ports:
+      - "12003:12003"
     volumes:
       - './bob:/bob'
+    depends_on:
+      - pvws
+    networks:
+      - web-socket-net
+networks:
+  web-socket-net:
+    driver: bridge
