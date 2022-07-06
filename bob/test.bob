@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <display version="2.0.0">
-  <name>Test DBWR!</name>
+  <name>Run Control</name>
   <widget type="label" version="2.0.0">
     <name>Label</name>
     <class>TITLE</class>
-    <text>Will this display on the web????</text>
+    <text>Web Runtime Example</text>
     <x use_class="true">0</x>
     <y use_class="true">0</y>
-    <width>680</width>
+    <width>550</width>
     <height>31</height>
     <font use_class="true">
       <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
@@ -19,17 +19,52 @@
     </foreground_color>
     <transparent use_class="true">true</transparent>
   </widget>
-  <widget type="textupdate" version="2.0.0">
-    <name>Text Update</name>
-    <pv_name>cmm:beam_current</pv_name>
-    <x>180</x>
-    <y>60</y>
-    <width>160</width>
-  </widget>
   <widget type="label" version="2.0.0">
     <name>Label_1</name>
-    <text>Beam Current</text>
-    <y>60</y>
-    <width>130</width>
+    <text>Example Boolean PV</text>
+    <y>50</y>
+    <width>180</width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>test:pv</pv_name>
+    <x>170</x>
+    <y>50</y>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>test:pv</pv_name>
+    <x>290</x>
+    <y>50</y>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>0</value>
+        <description>OFF</description>
+      </action>
+    </actions>
+    <pv_name>test:pv</pv_name>
+    <x>330</x>
+    <y>50</y>
+    <width>60</width>
+    <height>20</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>ON</description>
+      </action>
+    </actions>
+    <pv_name>test:pv</pv_name>
+    <x>400</x>
+    <y>50</y>
+    <width>60</width>
+    <height>20</height>
   </widget>
 </display>

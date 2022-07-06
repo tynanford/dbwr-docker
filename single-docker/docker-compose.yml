@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  dbwr:
+    build:
+      context: config 
+    image: 'dbwr'
+    container_name: dbwr
+    network_mode: 'host'
+    volumes:
+      - './bob:/bob'
