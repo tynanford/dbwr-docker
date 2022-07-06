@@ -21,8 +21,8 @@ RUN mvn -version
 
 # install tomcat
 #RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.10/bin/apache-tomcat-10.0.10.tar.gz
-RUN wget https://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.tar.gz
-RUN tar xvf apache-tomcat-9.0.63.tar.gz 
+RUN wget https://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
+RUN tar xvf apache-tomcat-9.0.64.tar.gz
 RUN mv apache-tomcat-*/ /opt/tomcat
 ENV CATALINA_HOME="/opt/tomcat"
 COPY ./setenv.sh ${CATALINA_HOME}/bin
@@ -32,12 +32,12 @@ RUN chmod ug+x ${CATALINA_HOME}/bin/setenv.sh
 ENV PATH="${PATH}:${CATALINA_HOME}/bin"
 
 # clone pvws 
-RUN git clone https://github.com/kasemir/pvws.git
+RUN git clone https://github.com/ornl-epics/pvws.git
 RUN cd pvws && mvn clean package
 RUN cp /pvws/target/pvws.war ${CATALINA_HOME}/webapps
 
 # clone dbwr
-RUN git clone https://github.com/kasemir/dbwr.git
+RUN git clone https://github.com/ornl-epics/dbwr.git
 RUN cd dbwr && mvn clean package
 RUN cp /dbwr/target/dbwr.war ${CATALINA_HOME}/webapps
 
