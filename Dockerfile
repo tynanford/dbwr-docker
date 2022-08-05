@@ -22,8 +22,7 @@ RUN dnf install maven -y
 RUN mvn -version
 
 # install tomcat
-#RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.10/bin/apache-tomcat-10.0.10.tar.gz
-RUN wget https://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz
 RUN tar xvf apache-tomcat-9.0.64.tar.gz 
 RUN mv apache-tomcat-*/ /opt/tomcat
 ENV CATALINA_HOME="/opt/tomcat"
