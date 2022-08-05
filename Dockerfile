@@ -39,6 +39,8 @@ RUN sed -i.bak -e "s|Connector port=\"8080\"|Connector port=\"${SERVICE_PORT}\"|
 
 # clone service 
 #RUN git clone https://github.com/ornl-epics/${SERVICE_NAME}.git
+COPY ./phoebus /phoebus
+RUN cd phoebus && mvn clean install -DskipTests
 COPY ./${SERVICE_NAME} /${SERVICE_NAME}
 RUN cd ${SERVICE_NAME} && mvn clean package
 RUN cp /${SERVICE_NAME}/target/${SERVICE_NAME}.war ${CATALINA_HOME}/webapps
