@@ -9,3 +9,7 @@ docker-compose build
 ```shell
 docker-compose up
 ```
+
+Then open in browser:
+
+http://localhost:8080/pvws

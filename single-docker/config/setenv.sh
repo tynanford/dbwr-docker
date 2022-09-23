@@ -1,6 +1,9 @@
-export EPICS_CA_ADDR_LIST=131.243.90.255
+export EPICS_CA_ADDR_LIST=localhost
 export EPICS_CA_MAX_ARRAY_BYTES=1000000
 export PV_THROTTLE_MS=1000
 export PV_ARRAY_THROTTLE_MS=10000
 export PV_WRITE_SUPPORT=false
 export DBWR1=/bob/test.bob
+export PVWS_HOST=localhost:8080
+export PVWS_WS_PROTOCOL=ws
+export PVWS_HTTP_PROTOCOL=http
